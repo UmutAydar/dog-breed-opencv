@@ -35,19 +35,6 @@ It combines **image processing with OpenCV**, **deep learning with a pre-trained
 
 ---
 
-## ⚙️ How It Works
-
-1. The user uploads a dog image through the web interface.
-2. The image is processed using OpenCV:
-   - Read image
-   - Resize to 224x224
-   - Convert color format (BGR → RGB)
-3. The processed image is passed to a **pre-trained MobileNetV2 model**.
-4. The model predicts the most likely dog breed.
-5. Results are displayed on the web page along with alternative predictions.
-
----
-
 ## ▶️ Run Streamlit App
 
 ```bash
