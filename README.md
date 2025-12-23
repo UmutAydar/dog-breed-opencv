@@ -1,46 +1,79 @@
-# 🐶 Dog Breed Prediction (OpenCV)
+# 🐶 Köpek Cinsi Tahmin Uygulaması (OpenCV + Transformers + Streamlit)
 
-This project is an **OpenCV-based dog breed classification application** that predicts the breed of a dog from an uploaded image.  
-It combines **image processing with OpenCV**, **deep learning with a pre-trained model**, and a **web interface using Streamlit**.
+Bu proje, **yüklediğiniz köpek fotoğrafına göre köpek cinsini tahmin eden** basit bir web uygulamasıdır.  
+Uygulama **eğitim yapmaz**; hazır (pre-trained) bir modeli kullanarak tahmin üretir.
 
----
-
-## 🚀 Features
-- Upload a dog photo via a web interface
-- Predict the dog breed using a pre-trained deep learning model
-- Display the most likely breed with confidence score
-- Show alternative predictions
-- Keep a history of uploaded images and predictions
+> ✅ Model: **Stanford Dogs (120 köpek ırkı)** üzerinde eğitilmiş hazır bir görüntü sınıflandırma modeli  
+> ✅ Arayüz: **Streamlit** (tarayıcı üzerinden çalışır)
 
 ---
 
-## 🧠 Technologies Used
+## 🎯 Özellikler
+
+- Köpek fotoğrafı yükleyerek **tahmin** alma
+- **Top-5** tahmini yüzde oranlarıyla gösterme
+- Daha önce yüklenen fotoğrafları **liste halinde** görme (geçmiş)
+- Modelde bulunan tüm ırk listesini (`dog_breeds_labels.txt`) görüntüleme
+
+---
+
+## 🧰 Kullanılan Teknolojiler
+
 - **Python**
-- **OpenCV (cv2)** – image processing
-- **TensorFlow / Keras** – deep learning model (MobileNetV2)
-- **NumPy** – numerical operations
-- **Streamlit** – web application interface
+- **Streamlit** (web arayüz)
+- **Transformers** (hazır görüntü modeli)
+- **PyTorch (torch)** (modelin çalışması için)
+- **Pillow (PIL)** (görüntü okuma/dönüştürme)
 
 ---
 
-## ⚙️ How It Works
-1. The user uploads a dog image through the web interface.
-2. The image is processed using OpenCV:
-   - Read image
-   - Resize to 224x224
-   - Convert color format (BGR → RGB)
-3. The processed image is passed to a **pre-trained MobileNetV2 model**.
-4. The model predicts the most likely dog breed.
-5. Results are displayed on the web page along with alternative predictions.
+## 🚀 Kurulum ve Çalıştırma 
+
+Aşağıdaki adımları takip ederek projeyi kendi bilgisayarınızda çalıştırabilirsiniz.
+
+### 1) Gereken Programlar
+- **Python 3.10 / 3.11 önerilir**
+- **Git** (opsiyonel ama önerilir)
+
+> Not: Python 3.13 bazı kütüphanelerde uyumsuzluk çıkarabilir. En sorunsuz: **3.11**.
 
 ---
 
-## ▶️ Run Streamlit App
+### 2) Projeyi İndir (Clone)
+Terminal/PowerShell açın ve şunu çalıştırın:
 
 ```bash
-# Start the Streamlit web application
+git clone https://github.com/UmutAydar/dog-breed-opencv.git
+cd dog-breed-opencv
+
+### 3) Sanal Ortam (venv) Oluştur ve Aktif Et
+Windows (PowerShell)
+
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate
+
+Aktif olunca satır başında şunu görürsünüz:
+(.venv)
+
+Sonra tekrar:
+.\.venv\Scripts\Activate
+
+### 4) Gerekli Paketleri Kur
+
+Sanal ortam aktifken:
+
+pip install -r requirements.txt 
+
+
+Eğer repoda requirements.txt yoksa şu komutla kurabilirsiniz:
+
+pip install streamlit transformers torch pillow
+
+
+### 5) Uygulamayı Başlat
+
 streamlit run app.py
 
-# The application will open in your browser at:
-# http://localhost:8501
+Tarayıcıda şu adreste açılır:
 
+http://localhost:8501
